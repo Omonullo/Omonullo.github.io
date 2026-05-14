@@ -223,6 +223,18 @@
     });
   }, { threshold: 0.4 });
   bars.forEach(function (b) { io.observe(b); });
+
+  // Konami code -> reveal secret
+  var konami = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+  var pos = 0;
+  document.addEventListener('keydown', function (e) {
+    var key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+    pos = (key === konami[pos]) ? pos + 1 : (key === konami[0] ? 1 : 0);
+    if (pos === konami.length) {
+      document.getElementById('secret').classList.add('shown');
+      pos = 0;
+    }
+  });
 </script>
 </body>
 </html>
