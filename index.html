@@ -81,6 +81,27 @@
     width: 0;
     transition: width 1.1s ease-out;
   }
+  /* Class & abilities */
+  #class .class-line {
+    font-size: 10px;
+    color: var(--text);
+    margin-bottom: 28px;
+  }
+  #class .class-line b { color: var(--pink); }
+  .chips { display: flex; flex-wrap: wrap; gap: 12px; }
+  .chip {
+    background: var(--bg-2);
+    border: 2px solid var(--teal);
+    color: var(--teal);
+    font-size: 9px;
+    padding: 8px 12px;
+    transition: transform 0.1s ease-out, background 0.1s ease-out;
+  }
+  .chip:hover {
+    transform: translate(-2px, -2px);
+    background: var(--teal);
+    color: var(--bg);
+  }
 </style>
 </head>
 <body>
@@ -112,6 +133,19 @@
   <div class="stat">
     <div class="stat-label"><span>&#128516; HUMOR</span><span class="val">88</span></div>
     <div class="bar"><div class="bar-fill" data-fill="88%"></div></div>
+  </div>
+</section>
+
+<section id="class">
+  <p class="screen-label">// CLASS &amp; ABILITIES</p>
+  <p class="class-line"><b>CLASS:</b> Clojure / Java Developer &mdash; employed at a secret company &#129323;</p>
+  <div class="chips">
+    <span class="chip">Clojure</span>
+    <span class="chip">Java</span>
+    <span class="chip">Leiningen</span>
+    <span class="chip">SQL</span>
+    <span class="chip">Git</span>
+    <span class="chip">Azure</span>
   </div>
 </section>
 
