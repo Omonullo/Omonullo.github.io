@@ -60,6 +60,27 @@
     animation: blink 1.1s steps(1) infinite;
   }
   @keyframes blink { 50% { opacity: 0; } }
+  /* Stats panel */
+  .stat { margin-bottom: 22px; }
+  .stat-label {
+    font-size: 9px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .stat-label .val { color: var(--yellow); }
+  .bar {
+    background: var(--bg-2);
+    border: 2px solid var(--muted);
+    height: 20px;
+    padding: 2px;
+  }
+  .bar-fill {
+    background: var(--teal);
+    height: 100%;
+    width: 0;
+    transition: width 1.1s ease-out;
+  }
 </style>
 </head>
 <body>
@@ -70,5 +91,42 @@
   <p class="blink">scroll down to continue</p>
 </section>
 
+<section id="stats">
+  <p class="screen-label">// CHARACTER STATS</p>
+  <div class="stat">
+    <div class="stat-label"><span>&#128692; SPEED</span><span class="val">85</span></div>
+    <div class="bar"><div class="bar-fill" data-fill="85%"></div></div>
+  </div>
+  <div class="stat">
+    <div class="stat-label"><span>&#9917; FOOTWORK</span><span class="val">78</span></div>
+    <div class="bar"><div class="bar-fill" data-fill="78%"></div></div>
+  </div>
+  <div class="stat">
+    <div class="stat-label"><span>&#129504; STRATEGY</span><span class="val">90</span></div>
+    <div class="bar"><div class="bar-fill" data-fill="90%"></div></div>
+  </div>
+  <div class="stat">
+    <div class="stat-label"><span>&#127798; SPICE TOLERANCE</span><span class="val">95</span></div>
+    <div class="bar"><div class="bar-fill" data-fill="95%"></div></div>
+  </div>
+  <div class="stat">
+    <div class="stat-label"><span>&#128516; HUMOR</span><span class="val">88</span></div>
+    <div class="bar"><div class="bar-fill" data-fill="88%"></div></div>
+  </div>
+</section>
+
+<script>
+  // Fill stat bars when they scroll into view
+  var bars = document.querySelectorAll('.bar-fill');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.style.width = e.target.dataset.fill;
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  bars.forEach(function (b) { io.observe(b); });
+</script>
 </body>
 </html>
