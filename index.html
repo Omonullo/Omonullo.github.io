@@ -102,6 +102,18 @@
     background: var(--teal);
     color: var(--bg);
   }
+  /* Soundtrack */
+  .track {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 9px;
+    padding: 12px 0;
+    border-bottom: 2px solid var(--bg-2);
+  }
+  .track .num { color: var(--pink); }
+  .track .name { color: var(--text); flex: 1; }
+  .track .eq { color: var(--teal); letter-spacing: 2px; }
 </style>
 </head>
 <body>
@@ -147,6 +159,14 @@
     <span class="chip">Git</span>
     <span class="chip">Azure</span>
   </div>
+</section>
+
+<section id="soundtrack">
+  <p class="screen-label">// SOUNDTRACK</p>
+  <div class="track"><span class="num">01</span><span class="name">Classic</span><span class="eq">||||</span></div>
+  <div class="track"><span class="num">02</span><span class="name">Epic</span><span class="eq">|||||</span></div>
+  <div class="track"><span class="num">03</span><span class="name">Inspiring</span><span class="eq">||||</span></div>
+  <div class="track"><span class="num">04</span><span class="name">Rock</span><span class="eq">|||||</span></div>
 </section>
 
 <script>
